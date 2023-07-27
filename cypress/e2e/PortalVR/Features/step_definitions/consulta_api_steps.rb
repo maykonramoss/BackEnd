@@ -26,5 +26,5 @@ Então('um tipo de estabelecimento aleatório deve ser impresso') do
   random_type = establishment_types.sample
 
   # Imprime o tipo de estabelecimento aleatório selecionado
-  puts "Tipo de estabelecimento aleatório: #{random_type}"
+  puts "Tipo de estabelecimento aleatórios: #{random_type}"
 end
