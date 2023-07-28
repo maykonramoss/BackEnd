@@ -13,18 +13,15 @@ Quando('a resposta JSON é obtida') do
   @json_response = JSON.parse(@response.body)
 end
 
-Então('a chave {string} deve estar presente no JSON') do |key|
+Então('a chave {string} deve estar presente no JSON.') do |key|
   # Verifica se a chave especificada em "key" está presente no JSON "@json_response"
   expect(@json_response).to have_key(key)
 end
 
-Então('um tipo de estabelecimento aleatório deve ser impresso') do
-  # Extrai os tipos de estabelecimento do JSON "@json_response" e armazena em "establishment_types"
+E ('um tipo de estabelecimento aleatório deve ser impresso') do
+  # Verifica e imprime o estabelecimento"
   establishment_types = @json_response['typeOfEstablishment']
-
-  # Seleciona aleatoriamente um tipo de estabelecimento da lista
   random_type = establishment_types.sample
-
-  # Imprime o tipo de estabelecimento aleatório selecionado
-  puts "Tipo de estabelecimento aleatórios: #{random_type}"
+  puts "Tipo de estabelecimento aleatório: #{random_type}"
+  expect(random_type).not_to be_nil
 end
